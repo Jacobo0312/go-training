@@ -6,7 +6,6 @@
 
 ### 1.1 Comment your code
 
-
 ### 1.2 Instance variables
 
 ### 1.3 Data Types
