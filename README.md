@@ -22,14 +22,4 @@
 
 ## Intermediate
 
-### 2. Estructuras de datos y control de flujo
-### 2.1 Variables y tipos de datos
-### 2.2 Arrays y slices
-### 2.3 Mapas
-### 2.4 Estructuras (structs)
-### 2.5 Condicionales y bucles
-
-### 3. Funciones y paquetes
-### 3.1 Definición y uso de funciones
-
 
