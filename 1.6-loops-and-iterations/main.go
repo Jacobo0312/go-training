@@ -23,6 +23,15 @@ func main() {
 		fmt.Println(num)
 	}
 
+	// Range Loop
+
+	var fruits = []string{"apple", "banana", "cherry"}
+
+	fmt.Println("Range Loop")
+	for i, fruit := range fruits {
+		fmt.Println(i, fruit)
+	}
+
 	// Infinite Loop
 
 	for {
