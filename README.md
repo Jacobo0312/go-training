@@ -19,3 +19,9 @@
 ### 1.7 [Functions and Packages](https://github.com/Jacobo0312/go-training/tree/main/1.7-functions-and-packages)
 
 ### 1.8 [Pointers](https://github.com/Jacobo0312/go-training/tree/main/1.8-pointers)
+
+### 2.0 [Vectors and Slices](https://github.com/Jacobo0312/go-training/tree/main/2.0-vectors-and-slices)
+
+### 2.2 [Structs](https://github.com/Jacobo0312/go-training/tree/main/2.2-structs)
+
+### 3.3 [Testing](https://github.com/Jacobo0312/go-training/tree/main/3.3-testing)
