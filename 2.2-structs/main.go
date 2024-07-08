@@ -67,14 +67,14 @@ func main() {
 	Product3.Save()
 
 	// Getting all the products
-	Products := Product1.GetAll()
+	Products := structs.GetAll()
 
 	// Printing the products
 
 	fmt.Println(Products)
 
 	// Finding a product by ID
-	ProductFound := Product1.FindByID(2)
+	ProductFound := structs.FindByID(2)
 
 	fmt.Println(ProductFound)
 
@@ -98,5 +98,43 @@ func main() {
 
 	// Printing the employee
 	Employee1.PrintEmployee()
+
+	// Printing in json
+	Employee1.PrintEmployeeJson()
+
+	//Create student
+	Student1 := structs.Student{
+		DNI:       "100527431",
+		FirstName: "Jacobo",
+		LastName:  "Garcia",
+		Date:      "01/01/2001",
+	}
+
+	//Printing the student
+	Student1.Detail()
+
+	//Creating a new product small
+	ProductSmall1 := structs.ProductSmall{
+		BaseProduct: Product1,
+	}
+
+	//Printing the price of the product small
+	fmt.Println(ProductSmall1.Price())
+
+	//Creating a new product medium
+	ProductMedium1 := structs.ProductMedium{
+		BaseProduct: Product2,
+	}
+
+	//Printing the price of the product medium
+	fmt.Println(ProductMedium1.Price())
+
+	//Creating a new product large
+	ProductLarge1 := structs.ProductLarge{
+		BaseProduct: Product3,
+	}
+
+	//Printing the price of the product large
+	fmt.Println(ProductLarge1.Price())
 
 }
