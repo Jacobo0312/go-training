@@ -78,12 +78,12 @@ func (p ProductLarge) Price() float64 {
 func CreateProduct(p Product, typeProduct string) ProductInterface {
 	switch typeProduct {
 	case "small":
-		return ProductSmall{BaseProduct: p}
+		return &ProductSmall{BaseProduct: p}
 	case "medium":
-		return ProductMedium{BaseProduct: p}
+		return &ProductMedium{BaseProduct: p}
 	case "large":
-		return ProductLarge{BaseProduct: p}
+		return &ProductLarge{BaseProduct: p}
 	default:
-		return ProductSmall{BaseProduct: p}
+		return &ProductSmall{BaseProduct: p}
 	}
 }

@@ -137,4 +137,10 @@ func main() {
 	//Printing the price of the product large
 	fmt.Println(ProductLarge1.Price())
 
+	var i interface{} = "Hello"
+
+	s, ok := i.(string)
+
+	fmt.Println(s, ok)
+
 }

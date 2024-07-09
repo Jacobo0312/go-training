@@ -7,7 +7,7 @@ import (
 
 // Global Slice for Employees
 
-var employees []Employee
+// var employees []Employee
 
 // Employee struct
 // ID, Position, Person.

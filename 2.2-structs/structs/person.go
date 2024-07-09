@@ -7,7 +7,7 @@ import (
 
 // Global Slice for Persons
 
-var persons []Person
+// var persons []Person
 
 // Person struct
 //	ID, Name, DateOfBirth.
