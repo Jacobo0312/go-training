@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
+	"os"
+	"strconv"
 )
 
 // Errors
@@ -13,6 +16,8 @@ var (
 	ErrHomeRequired            = errors.New("Error: Home is required")
 	ErrFileRequired            = errors.New("Error: File is required")
 	CustomerAlreadyExistsError = errors.New("Error: customer already exists")
+	FileNotFoundError          = errors.New("The indicated file was not found or is damaged")
+	ErrFileIsEmpty             = errors.New("Error: File is empty")
 )
 
 // Global Slice for Customers
@@ -73,38 +78,91 @@ func (c *Customer) Save() error {
 
 func main() {
 
-	Customers1 := Customer{
-		File:        "customer1.txt",
-		Name:        "Jacobo Garcia",
-		ID:          1,
-		PhoneNumber: "1234567890",
-		Home:        "123 Main St",
-	}
+	// Create a customer by file
+	err := createUserByFile("customer1.txt")
 
-	Customers2 := Customer{
-		File:        "customer2.txt",
-		Name:        "Jacobo Garcia",
-		PhoneNumber: "1234567890",
-		Home:        "123 Main St",
-	}
-
-	err := Customers1.Save()
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	err = Customers1.Save()
+	// Create a customer by file
+	err = createUserByFile("customer1.txt")
+
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	err = Customers2.Save()
+	// Create a customer by file
+	err = createUserByFile("customer2.txt")
+
 	if err != nil {
 		fmt.Println(err)
+	}
+
+	// Create a customer by file
+	err = createUserByFile("customer3.txt")
+
+	if err != nil {
+		fmt.Println(err)
+
 	}
 
 	fmt.Println(Customers)
 
 	fmt.Println("End of execution")
 
+}
+
+func createUserByFile(path string) error {
+	file, err := os.Open(path)
+	if err != nil {
+		return FileNotFoundError
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	if !scanner.Scan() {
+		return ErrFileIsEmpty
+	}
+	fileName := scanner.Text()
+
+	if !scanner.Scan() {
+		return ErrNameRequired
+	}
+	name := scanner.Text()
+
+	if !scanner.Scan() {
+		return ErrIDRequired
+	}
+	idStr := scanner.Text()
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		return fmt.Errorf("invalid ID: %v", err)
+	}
+
+	if !scanner.Scan() {
+		return ErrPhoneNumberRequired
+	}
+	phoneNumber := scanner.Text()
+
+	if !scanner.Scan() {
+		return ErrHomeRequired
+	}
+	home := scanner.Text()
+
+	customer := Customer{
+		File:        fileName,
+		Name:        name,
+		ID:          id,
+		PhoneNumber: phoneNumber,
+		Home:        home,
+	}
+
+	err = customer.Save()
+	if err != nil {
+		return fmt.Errorf("failed to save customer: %v", err)
+	}
+
+	return nil
 }

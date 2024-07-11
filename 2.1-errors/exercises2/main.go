@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	FileNotFoundError = errors.New("Error: file not found")
+	FileNotFoundError = errors.New("The indicated file was not found or is damaged")
 )
 
 func main() {

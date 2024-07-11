@@ -1,0 +1,5 @@
+customer1.txt
+Jacobo Garcia
+1006107372
+3183300831
+Cra 98
